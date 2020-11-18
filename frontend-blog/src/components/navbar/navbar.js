@@ -7,8 +7,8 @@ import PostcardView from '../../pages/postcardview/postcardview';
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <a className="navbar-brand" href="#">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light h5 "  >
+        <a className="navbar-brand" heigth="3rem" href="#">
           PostCard LOGO
         </a>
         <button
