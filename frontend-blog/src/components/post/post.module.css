@@ -28,3 +28,6 @@
         color: #3D4352;
         padding: 3rem;
     }
+    .__post_content>p {
+        text-align: left;
+    }

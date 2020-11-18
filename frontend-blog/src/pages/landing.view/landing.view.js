@@ -24,14 +24,9 @@ const LandingView = () => {
             <div className={styles.__landing_title_div}>
             <h1  className={styles.__landing_title}>Esta es la Landing</h1>
             </div>
-
             <div className={styles.__main_landing}>
                     <PostcardView />
-
-
-
             </div>
-
         </div>
 </>
 
