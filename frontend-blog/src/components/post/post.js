@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import styles from './post.module.css';
 import Logo from '../logo/logo';
+import ReactHtmlParser from "react-html-parser";
 
 
 
@@ -44,8 +45,8 @@ const Post = props => {
         </div>
       </div>
       <div className={styles.__post_content}>
-        <p>
-          {post.content}
+        <p >
+          {ReactHtmlParser(post.content)}
         </p>
       </div>
     </div>

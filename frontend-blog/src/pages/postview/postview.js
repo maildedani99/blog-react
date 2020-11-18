@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router';
 import Post from '../../components/post/post';
 import styles from './postview.module.css';
+import ReactHtmlParser from "react-html-parser";
 
 
 
