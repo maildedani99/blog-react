@@ -3,13 +3,18 @@ import Logo from '../logo/logo';
 import styles from './postcard.module.css';
 
 const PostCard = (props) => {
-  const {icon, name, description} = props;
+  const {icon, title, description} = props;
 
   return (
     <div className={styles.__postcard_div}>
       <div className={styles.__card_header}>
-        <Logo width="100px" icon={icon} />
-        <h4>{name}</h4>
+        <div className={styles.__card_icon}>
+          <Logo width="60px" icon={icon} />
+        </div>
+
+        <div className={styles.__card_title}>
+          <p>{title}</p>
+        </div>
       </div>
       <div className={styles.__card_content}>
         <p>{description}</p>

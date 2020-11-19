@@ -15,9 +15,7 @@ const Logo = (props) => {
   
   const { icons, setIcons } = useContext(IconsContext); 
 
-  const big = styles.__img_post;
-  const small = styles.__img_postcard;
-
+  
   return(
     <div> {
   icons.map((item) =>

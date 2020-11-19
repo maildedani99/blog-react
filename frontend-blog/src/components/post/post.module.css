@@ -1,4 +1,6 @@
 .__post_div {
+    display: flex;
+    flex-direction: column;
     width: 70%;
     height: auto;
     max-width: 1200px;
@@ -16,11 +18,31 @@
     flex-direction: row;
     width: 100%;
     height: auto;
+    padding: 3rem;
+    justify-content: center;
 }
 .__post_title_div {
     display: flex;
+    width: 80%;
     flex-direction: column;
-    padding: 2rem;
+    vertical-align: middle;
+    justify-content: center;
+    
+}
+.__post_icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 20%;
+}
+.__post_button {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    height: 100%;
+    justify-content: flex-end;
+    align-self: center;
+    margin-bottom: 3rem;
 }
 
 
