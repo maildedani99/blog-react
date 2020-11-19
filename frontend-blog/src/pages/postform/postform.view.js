@@ -1,12 +1,19 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Navbar from '../../components/navbar/navbar';
 import styles from './postformview.module.css';
 import { Editor } from "@tinymce/tinymce-react";
+import { useHistory } from 'react-router-dom';
+import { LANDING } from '../../routes/routes';
+import { IconsContext } from '../../contexts/iconscontext';
 import ReactHtmlParser from "react-html-parser";
 import swal from 'sweetalert';
 
 
 const PostForm = () => {
+
+  const { icons } = useContext(IconsContext);
+  const history = useHistory();
+
   const [data, setData] = useState({});
 
   const handleInputChange = (event) => {
@@ -20,42 +27,15 @@ const PostForm = () => {
   const [wysiwyg, setWysiwyg] = useState(null)
   const handleEditorChange = content => {
     setWysiwyg(content);
-   /*  setData({
-      ...data,
-      content : content,
-    }); */
+   
     console.log(content);
   };
-
-  
 
    const handleSelectChange = (event) => {
     setData({
       ...data,
       icon : event.target.value,
     }); 
-
-  };
-
-  const [icons, setIcons] = useState([]);
-
-  const getIcons = () => {
-    const url = 'http://localhost/api/icons';
-    const options = {
-      method: 'GET',
-      headers: new Headers(),
-    };
-    fetch(url, options)
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        }
-        return Promise.reject(response.status);
-      })
-      .then(function (myJson) {
-        setIcons(myJson);
-      })
-      .catch((error) => console.log(error));
   };
 
   const submitForm = () => {
@@ -65,7 +45,6 @@ const PostForm = () => {
       icon_id: data.icon,
       description: data.description,
       content: wysiwyg,
-      
     };
     const options = {
       method: 'POST',
@@ -80,6 +59,7 @@ const PostForm = () => {
         if (response.status === 201  || response.status === 200) {
           console.log(response.status);
           swal("Enhorabuena", "Post creado con exito", "success");
+          history.push(LANDING)
           return response.json();
         } else {
           return Promise.reject(response.status);
@@ -88,17 +68,11 @@ const PostForm = () => {
       .catch((error) => console.log(error));
   };
 
-
-
-  useEffect(() => {
-    getIcons();
-  }, [])
-
   return (
       <div>
-        <h1>Form Post View</h1>
+        <h1 className="text-muted mt-5">Crear nuevo Post</h1>
         <div className={styles.__div_form}>
-          <select className={styles.__select} onChange={handleSelectChange}>
+          <select className="form-control col-3 align-self-center" onChange={handleSelectChange}>
             <option
               className={styles.__option}
               label="Elige una opcion...."
@@ -118,21 +92,22 @@ const PostForm = () => {
         </select>
 
         <input
-          className={styles.__input_form}
+          className="form-control col-6 align-self-center mt-5"
           name="title"
           type="text"
           placeholder="title"
           onChange={handleInputChange}
         />
         <input
-          className={styles.__input_form}
+          className="form-control col-6 align-self-center mt-5"
           name="description"
           type="text"
           placeholder="description"
           onChange={handleInputChange}
         />
-        <div className={styles.__input_form_content}>
-        <Editor
+        <div className="form-control col-6 align-self-center mt-5">
+          <Editor
+            
             initialValue="<p>This is the initial content of the editor</p>"
             apiKey='z3chpr7kq0azccojyrbp99s6bab52o2f3t26a7hg1ge0iy93'
             init={{
@@ -152,22 +127,10 @@ const PostForm = () => {
          onEditorChange={handleEditorChange}      
          />
           </div>
-            
-        {/* <textarea
-          className={styles.__input_form_content}
-          name="content"
-          type="text"
-          placeholder="dani"
-          onChange={handleInputChange}
-        /> */}
-       {/*  <input
-          className={styles.__input_form}
-          name="icon"
-          type="number"
-          onChange={handleInputChange}
-        /> */}
+        
         <input
-          className={styles.__input_form_button}
+          
+          className="btn btn-primary btn-lg col-2 my-5 align-self-center"
           name="button"
           type="button"
           value="Crear Post"
