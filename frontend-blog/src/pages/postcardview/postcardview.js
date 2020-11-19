@@ -74,7 +74,7 @@ const PostcardView = () => {
               <Link to={POSTBYID + item.id}>
                 <PostCard
                   icon={item.icon_id}
-                  name={item.title}
+                  title={item.title}
                   description={item.description}
                 />
               </Link>
