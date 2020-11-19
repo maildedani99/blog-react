@@ -28,6 +28,8 @@ Route::get('posts/recommended', 'PostController@allRecommended');
 Route::get('posts/{id}', 'PostController@show');
 Route::get('posts/user/{userId}', 'PostController@getByUser');
 Route::post('posts/create', 'PostController@create');
+Route::delete('posts/delete/{id}', 'PostController@delete');
+
 
 
 Route::get('icons', 'IconController@all');
