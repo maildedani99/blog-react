@@ -10,7 +10,7 @@ class Post extends Model
         'id',
     ];
 
-
+   
     public function icon()
     {
         return $this->hasOne('App\Icon', 'icon_id');
