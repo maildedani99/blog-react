@@ -47,11 +47,11 @@ const PostcardView = () => {
   return (
     <div className={styles.__container_postcardview}>
       <div className={styles.__postcardview_title_div}>
-        <h1 className={styles.__postcardview_title}>Esta es la postcardview</h1>
+        <h1 className="h1 text-muted mt-5"> Listado de Post-Cards</h1>
       </div>
       <div className={styles.__postcardview_div}>
         <div className={styles.__div_search}>
-          <select className={styles.__select} onChange={handleSelectChange}>
+          <select className="form-control col-3 align-self-center mb-5" onChange={handleSelectChange}>
             <option
               className={styles.__option}
               label="Mostrar todo"
@@ -74,7 +74,7 @@ const PostcardView = () => {
               <Link to={POSTBYID + item.id}>
                 <PostCard
                   icon={item.icon_id}
-                  name={item.title}
+                  title={item.title}
                   description={item.description}
                 />
               </Link>

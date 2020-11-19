@@ -42,7 +42,6 @@ class PostController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'icon_id' => $request->icon_id,
-            'description' => $request->description,
             'content' => $request->content,
         ]);
         return response()->json($room);
@@ -76,8 +75,12 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+      return response()->json([
+        'message' => 'Data deleted successfully!'
+      ]);
     }
 }
