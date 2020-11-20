@@ -3,7 +3,7 @@ import styles from './post.module.css';
 import Logo from '../logo/logo';
 import ReactHtmlParser from 'react-html-parser';
 import {Link} from 'react-router-dom';
-import {LANDING} from '../../routes/routes';
+import {LANDING, POSTUPDATEBYID} from '../../routes/routes';
 import {useHistory} from 'react-router-dom';
 import swal from 'sweetalert';
 
@@ -12,7 +12,8 @@ const Post = props => {
   const history = useHistory ();
 
   const {id} = props;
-  console.log ('hola' + id);
+  console.log('hola' + id);
+  
   const getPost = () => {
     const url = `http://localhost/api/posts/${id}`;
     const options = {
@@ -93,6 +94,15 @@ const Post = props => {
             value="Eliminar Post"
             onClick={deletePost}
           />
+        </div>
+        <div className={styles.__post_button_div}>
+          <Link to={POSTUPDATEBYID + id}>
+          <input
+            className="btn btn-success mx-5 btn-lg"
+            type="button"
+            value="Modificar Post"
+            />
+            </Link>
         </div>
 
       </div>
