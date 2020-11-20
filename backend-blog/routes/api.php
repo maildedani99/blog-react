@@ -29,6 +29,8 @@ Route::get('posts/{id}', 'PostController@show');
 Route::get('posts/user/{userId}', 'PostController@getByUser');
 Route::post('posts/create', 'PostController@create');
 Route::delete('posts/delete/{id}', 'PostController@delete');
+//Route::update('posts/update/{id}', 'PostController@update');
+
 
 
 
