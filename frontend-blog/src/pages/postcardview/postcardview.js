@@ -4,54 +4,47 @@ import styles from './postcardview.module.css';
 import PostCard from '../../components/postcard/postcard';
 import {Link} from 'react-router-dom';
 import {POST, POSTBYID} from '../../routes/routes';
-import {IconsContext} from '../../contexts/iconscontext';
+import { PostsContext } from '../../contexts/postcontext';
+import Button from '../../components/button/button';
+import './postcardview.css';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+import icon from './assets/search.png';
 
 const PostcardView = () => {
-  const [posts, setPosts] = useState([]);
-  const [renderPost, setRenderPost] = useState([]);
 
-  const {icons, setIcons} = useContext(IconsContext);
-
-  const getPost = () => {
-    const url = 'http://localhost/api/posts';
-    const options = {
-      method: 'GET',
-      headers: new Headers(),
-    };
-    fetch(url, options)
-      .then((response) => {
-        if (response.status === 200) {
-          return response.json();
-        }
-        return Promise.reject(response.status);
-      })
-      .then(function (myJson) {
-        setPosts(myJson);
-        console.log(posts);
-      })
-      .catch((error) => console.log(error));
-  };
-
+  const { posts, icons, render } = useContext(PostsContext);
   const [selected, setSelected] = useState(0);
+  const [search, setSearch] = useState("");
 
   const handleSelectChange = (e) => {
     setSelected(e.target.value);
   };
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value)
+  }
+let resultArray = ['']
+  const searchClick = () => {
+    let result;
+    console.log(search)
+    posts.map(item => {
+      result = item.title.includes(search);
+      if (result == true) {
+        resultArray.push(item);
+      }
+      console.log(resultArray);
+      })  
+    
+  }
 
-  useEffect(() => {
-    getPost();
-    //getIcons();
-    setRenderPost(posts);
-  }, []);
 
   return (
     <div className={styles.__container_postcardview}>
-      <div className={styles.__postcardview_title_div}>
-        <h1 className="h1 text-muted mt-5"> Listado de Post-Cards</h1>
-      </div>
+   
       <div className={styles.__postcardview_div}>
         <div className={styles.__div_search}>
-          <select className="form-control col-3 align-self-center mb-5" onChange={handleSelectChange}>
+           
+          <input className=" form-control" type="text" name="search" placeholder="Busca lo que necesitas..." onChange={handleSearchChange} />
+            <img className="input-icon" src={icon} alt="icon" onClick={searchClick} />          
+            <select className="form-control col-3 align-self-center mb-5" onChange={handleSelectChange}>
             <option
               className={styles.__option}
               label="Mostrar todo"

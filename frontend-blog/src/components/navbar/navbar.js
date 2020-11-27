@@ -1,15 +1,21 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
-import styles from './navbar.module.css';
-import {LANDING, POSTCARD, POST, POSTFORM} from '../../routes/routes';
+import { Link } from 'react-router-dom';
+import logo from './proweb21_logo.png';
+//import styles from './navbar.module.css';
+import {LANDING, POSTCARD, POST, POSTFORM, ESCRIBENOS} from '../../routes/routes';
 import PostcardView from '../../pages/postcardview/postcardview';
-
+import Button from '../button/button';
+import './navbar.css';
+import Escribenos from '../../pages/ecribenos/escribenos';
 const Navbar = () => {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light h5 "  >
+      <nav className="navbar navbar-expand-lg navbar-light bg-dangerous h5 fixed-top bg-white px-5 "  >
         <a className="navbar-brand" heigth="3rem" href="#">
-          PostCard LOGO
+          
+          <Link className="link_router" to={LANDING}>
+            <img className="navbar_icon" src={logo} alt="logo"/>          
+          </Link>
         </a>
         <button
           className="navbar-toggler"
@@ -24,41 +30,18 @@ const Navbar = () => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav mr-auto">
-            <li className="nav-item">
-              <a className="nav-link">
-                <Link
-                  value="home"
-                  className={styles.__link_router}
-                  to={LANDING}
-                >
-                  
-                </Link>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link ">
-                <Link className={styles.__link_router} to={POST}>
-                  
-                </Link>
-              </a>
-            </li>
+            
+                {/* <Link className="link_router" to={POSTCARD}>
+                  <Button value="Ver los Posts" />
+                </Link> */}
 
-            <li className="nav-item">
-              <a className="nav-link ">
-                <Link className={styles.__link_router} to={POSTCARD}>
-                  PostCards
-                </Link>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link ">
-                <Link className={styles.__link_router} to={POSTFORM}>
-                  New Post
-                </Link>
-              </a>
-            </li>
-          </ul>
+                  <h3 className="navbar_title mx-auto align-self-end mt-3">"Guia de viaje" <br/>desarrollo WEB</h3>
+                {/* <Link className="link_router" to={POSTFORM}>
+                  <Button  className="link_router" to={POSTFORM} value="New Post"/>
+                </Link> */}
+          <Link to={ESCRIBENOS}>
+              <Button value="Contacto" type="button" />
+          </Link>
         </div>
       </nav>
     </div>
