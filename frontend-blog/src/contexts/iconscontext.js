@@ -26,10 +26,6 @@ const IconsProvider = ({ children }) => {
         .catch (error => console.log (error));
     };
 
-    useEffect(() => {
-        getIcons();
-    }, []);
-
     
 
     return (
