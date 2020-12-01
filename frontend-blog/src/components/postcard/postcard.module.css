@@ -1,10 +1,10 @@
 .__postcard_div {
     width: 300px;
     height: 400px;
-    border: 1px solid #3D4352;
-    border-radius: 3rem;
+    border: 2px solid #909194;
+    border-radius: 2rem;
     margin-top: 3rem;
-    box-shadow: 2px 3px #3D4352;
+    box-shadow: 3px 3px #909194;
     margin: 2rem 2rem;
 }
 .__postcard_div:hover {

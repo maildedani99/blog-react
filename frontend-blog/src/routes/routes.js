@@ -5,4 +5,6 @@ export const POSTBYID = '/post/';
 export const POSTFORM = '/postform';
 export const POSTUPDATE = '/postupdate/:id';
 export const POSTUPDATEBYID = '/postupdate/';
+export const ESCRIBENOS = '/escribenos';
+
 
