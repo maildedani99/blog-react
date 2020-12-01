@@ -4,11 +4,11 @@ import PostView from './pages/postview/postview';
 import PostForm from './pages/postform/postform.view';
 import PostUpdate from './pages/postupdateview/postUpdateview';
 import 'materialize-css';
-import {IconsProvider} from './contexts/iconscontext';
-
-import {LANDING, POSTCARD, POST, POSTFORM, POSTUPDATE} from './routes/routes';
+import {LANDING, POSTCARD, POST, POSTFORM, POSTUPDATE ,ESCRIBENOS} from './routes/routes';
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
+import { PostsProvider } from './contexts/postcontext';
+import Escribenos from './pages/ecribenos/escribenos';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         <Navbar />
         <div>
           <Switch>
-            <IconsProvider>
+            <PostsProvider>
               <Route exact path={LANDING}>
                 <PostcardView />
               </Route>
@@ -33,7 +33,10 @@ function App() {
               <Route exact path={POSTUPDATE}>
                 <PostUpdate />
               </Route>
-            </IconsProvider>
+            <Route exact path={ESCRIBENOS}>
+                <Escribenos />
+              </Route>
+            </PostsProvider>
           </Switch>
         </div>
       </Router>

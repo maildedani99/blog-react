@@ -5,11 +5,12 @@
     height: auto;
     max-width: 1200px;
     min-height: 80vh;
-    border: 2px solid #3D4352;
+    border: 2px solid  #909194;
     border-radius: 3rem;
+    box-shadow: 2px 3px  #909194;
     margin-top: 3rem;
-    box-shadow: 2px 3px #3D4352;
-    margin: 2rem 2rem;
+    margin-top: 15rem;
+    margin-bottom: 5rem;
 }
 
 .__post_header {
@@ -42,6 +43,7 @@
     width: 100%;
     height: auto;
     justify-content: space-around;
+    margin-right: 5rem;
     align-self: center;
     vertical-align: bottom;
     margin-bottom: 3rem;

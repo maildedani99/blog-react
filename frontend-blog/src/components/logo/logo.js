@@ -8,12 +8,12 @@ import css from './assets/css.png';
 import mysql from './assets/mysql.png';
 import docker from './assets/docker.png';
 import nodejs from './assets/nodejs.png';
-import { IconsContext } from '../../contexts/iconscontext';
+import { PostsContext } from '../../contexts/postcontext';
 
 const Logo = (props) => {
   const { icon, width } = props;
   
-  const { icons, setIcons } = useContext(IconsContext); 
+  const { icons } = useContext(PostsContext); 
 
   
   return(
