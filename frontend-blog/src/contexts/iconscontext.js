@@ -8,7 +8,7 @@ const IconsProvider = ({ children }) => {
     const [icons, setIcons] = useState (['']);
 
     const getIcons = () => {
-      const url = 'http://localhost/api/icons';
+      const url = 'http://127.0.0.1:8000/api/posts';
       const options = {
         method: 'GET',
         headers: new Headers (),

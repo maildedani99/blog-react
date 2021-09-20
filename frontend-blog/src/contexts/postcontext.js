@@ -12,7 +12,7 @@ const PostsProvider = ({ children }) => {
     const [render, setRender] = useState(false);
 
     const getPosts = () => {
-      const url = 'http://localhost/api/posts';
+      const url = 'http://127.0.0.1:8000/api/posts';
       const options = {
         method: 'GET',
         headers: new Headers (),
