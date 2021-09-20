@@ -46,9 +46,15 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
+<<<<<<< HEAD
             'host' => env('DB_HOST', 'database_mysql'),
             'port' => env('DB_PORT', '3305'),
             'database' => env('DB_DATABASE', 'blogdb'),
+=======
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3305'),
+            'database' => env('DB_DATABASE', 'blog_db'),
+>>>>>>> 9b44badaca1ec33f757ee5c7b28a1e353d857128
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', 'nds2020'),
             'unix_socket' => env('DB_SOCKET', ''),

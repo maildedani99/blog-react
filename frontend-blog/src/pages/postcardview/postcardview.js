@@ -6,8 +6,8 @@ import {Link} from 'react-router-dom';
 import {POST, POSTBYID} from '../../routes/routes';
 import { PostsContext } from '../../contexts/postcontext';
 import Button from '../../components/button/button';
-import './postcardview.css';                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 import icon from './assets/search.png';
+import '../postcardview/postcardview.css';
 
 const PostcardView = () => {
 
@@ -32,7 +32,6 @@ let resultArray = ['']
       }
       console.log(resultArray);
       })  
-    
   }
 
 

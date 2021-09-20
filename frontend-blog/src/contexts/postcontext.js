@@ -12,9 +12,11 @@ const PostsProvider = ({ children }) => {
     const [render, setRender] = useState(false);
 
     const getPosts = () => {
-      const url = 'http://localhost/api/posts';
+      const url = 'http://localhost:8000/api/posts';
       const options = {
         method: 'GET',
+        mode:'cors',
+
         headers: new Headers (),
       };
       fetch (url, options)
@@ -33,9 +35,11 @@ const PostsProvider = ({ children }) => {
 
 
     const getIcons = () => {
-        const url = 'http://localhost/api/icons';
+        const url = 'http://localhost:8000/api/icons';
         const options = {
           method: 'GET',
+        mode:'cors',
+
           headers: new Headers (),
         };
         fetch (url, options)

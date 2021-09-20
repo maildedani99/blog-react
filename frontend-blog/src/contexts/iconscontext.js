@@ -8,11 +8,13 @@ const IconsProvider = ({ children }) => {
     const [icons, setIcons] = useState (['']);
 
     const getIcons = () => {
-      const url = 'http://localhost/api/icons';
+      const url = 'http://localhost:8000/api/icons';
       const options = {
         method: 'GET',
+        mode:'cors',
         headers: new Headers (),
       };
+      
       fetch (url, options)
         .then (response => {
           if (response.status === 200) {
