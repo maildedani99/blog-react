@@ -39,7 +39,7 @@ const PostForm = () => {
   };
 
   const submitForm = () => {
-    const url = 'http://localhost/api/posts/create';
+    const url = 'http://localhost:8000/api/posts/create';
     const body = {
       title: data.title,
       icon_id: data.icon,
@@ -74,7 +74,7 @@ const PostForm = () => {
   };
 
   return (
-    <div>
+    <div className={styles.__container}>
       <h1 className="text-muted mt-5">Crear nuevo Post</h1>
       <div className={styles.__div_form}>
         <select

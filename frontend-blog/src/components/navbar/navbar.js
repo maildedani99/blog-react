@@ -36,11 +36,11 @@ const Navbar = () => {
                 </Link> */}
 
                   <h3 className="navbar_title mx-auto align-self-end mt-5">"Guia de viaje" <br/>desarrollo WEB</h3>
-                {/* <Link className="link_router" to={POSTFORM}>
-                  <Button  className="link_router" to={POSTFORM} value="New Post"/>
-                </Link> */}
-          <Link to={ESCRIBENOS}>
-              <Button value="Contacto" type="button" />
+                <Link className="link_router" to={POSTFORM}>
+                  <Button type="button"   value="New Post"/>
+                </Link>
+          <Link className="link_router" to={ESCRIBENOS}>
+              <Button  value="Contacto" type="button" />
           </Link>
               {/* <Button value="Registro" type="button" /> */}
         </div>
