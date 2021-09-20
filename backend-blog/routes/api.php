@@ -20,17 +20,11 @@ use Illuminate\Http\Request;
 
 
 Route::get('posts', 'PostController@all');
-Route::get('posts/index', 'PostController@index');
-
-//Route::get('posts/search/{params}', 'PostController@search');
-Route::get('posts/recommended', 'PostController@allRecommended');
-
+Route::get('posts/last', 'PostController@last');
 Route::get('posts/{id}', 'PostController@show');
-Route::get('posts/user/{userId}', 'PostController@getByUser');
 Route::post('posts/create', 'PostController@create');
 Route::delete('posts/delete/{id}', 'PostController@delete');
-//Route::update('posts/update/{id}', 'PostController@update');
-
+Route::patch('posts/update/{id}', 'PostController@update');
 
 
 

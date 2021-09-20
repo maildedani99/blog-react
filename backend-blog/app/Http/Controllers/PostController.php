@@ -16,35 +16,24 @@ class PostController extends Controller
         Log::info('Retrieving all POSTS');
         return response()->json(Post::all());
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * 
-     */
-    public function index()
-    {
-        Log::info('Retrieving all posts');
-        $data = Post::with('icon')->get();
-        dd($data);
 
-    }
-   
-    /**
-     * Store a newly created resource in storage.
-     *
-     * 
-     */
     public function create(Request $request)
     {
-        
-
-        $room = Post::create([
+        $post = Post::create([
             'title' => $request->title,
             'description' => $request->description,
             'icon_id' => $request->icon_id,
             'content' => $request->content,
         ]);
-        return response()->json($room);
+        $lastPost = Post::all()->last();
+        return response()->json($lastPost);
+    }
+
+    public function last()
+    {
+        Log::info('Retrieving last post');
+        //dd($lastPost);
+        return response()->json($lastPost);
     }
 
     /**
@@ -66,8 +55,17 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /* $post = Post::find($id);
-        $post->fill(Input::all())->save(); */
+        
+            $post = Post::find($id);
+
+            $post->title = $request->input('title');
+            $post->icon_id = $request->input('icon_id');
+            $post->description = $request->input('description');
+            $post->content = $request->input('content');
+            $post->save();
+    
+            return response()->json($post);
+           
     }
 
     /**
