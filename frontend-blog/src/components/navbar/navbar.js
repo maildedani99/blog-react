@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logo from './proweb21_logo.png';
+import logo from './logolargob.png';
 //import styles from './navbar.module.css';
 import {LANDING, POSTCARD, POST, POSTFORM, ESCRIBENOS} from '../../routes/routes';
 import PostcardView from '../../pages/postcardview/postcardview';
